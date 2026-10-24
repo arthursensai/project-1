@@ -16,8 +16,8 @@ export default function OpengraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#eeeae2",
-          color: "#171613",
+          background: "#f1ebdf",
+          color: "#1f1a15",
           padding: 72,
           fontFamily: "serif",
         }}
@@ -26,12 +26,12 @@ export default function OpengraphImage() {
           FÈS · AÏN CHKEF
         </div>
         <div style={{ display: "flex", fontSize: 200, lineHeight: 1 }}>
-          <span>coup</span>
-          <span style={{ color: "#9b3a22" }}>&apos;</span>
+          <span style={{ fontStyle: "italic" }}>coup</span>
+          <span style={{ color: "#8f3a1e" }}>&apos;</span>
           <span style={{ fontWeight: 700 }}>ART</span>
         </div>
         <div style={{ fontSize: 28, fontFamily: "sans-serif" }}>
-          {isPreview ? copy.preview.label : copy.meta.description}
+          {isPreview ? copy.preview.label : copy.meta.title}
         </div>
       </div>
     ),

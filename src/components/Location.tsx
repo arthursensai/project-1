@@ -5,7 +5,7 @@ import { isHttpsUrl, telHref, verified, whatsappHref } from "@/lib/utils";
 import { SectionHeading } from "./SectionHeading";
 
 const actionClass =
-  "inline-flex min-h-12 items-center justify-center gap-2 border border-ink px-5 font-medium hover:bg-ink hover:text-paper";
+  "inline-flex min-h-12 items-center justify-center gap-2 bg-canvas px-5 font-medium text-ink hover:bg-surface";
 
 export function Location() {
   const l = copy.location;
@@ -20,39 +20,44 @@ export function Location() {
   const wa = whatsapp ? whatsappHref(whatsapp) : null;
   const mapsLink = maps && isHttpsUrl(maps) ? maps : null;
 
-  const pending = <span className="text-muted">{l.pending}</span>;
+  const pending = <span className="italic">{l.pending}</span>;
+  const row = "grid gap-1 py-4 sm:grid-cols-[8rem_1fr] sm:gap-6";
+  const label = "text-xs font-medium uppercase tracking-[0.14em]";
 
   return (
-    <section id="contact" aria-labelledby="contact-titre" className="border-t border-ink/30">
-      <div className="mx-auto grid max-w-[78rem] gap-8 px-5 py-14 md:grid-cols-12 md:gap-8 md:px-8 md:py-20">
-        <SectionHeading id="contact-titre" eyebrow={l.eyebrow} title={l.title} />
+    <section
+      id="contact"
+      aria-labelledby="contact-titre"
+      className="on-action bg-action text-action-ink"
+    >
+      <div className="wrap grid gap-10 py-16 md:grid-cols-12 md:gap-10 md:py-24">
+        <div className="md:col-span-5">
+          <SectionHeading id="contact-titre" eyebrow={l.eyebrow} title={l.title} inverse />
+          {neighbourhood && (
+            <p className="mt-8 font-display text-2xl leading-snug text-balance">
+              {neighbourhood}
+              {business.neighbourhood.status === "unverified" && (
+                <span className="mt-2 block font-sans text-sm">{l.neighbourhoodNote}</span>
+              )}
+            </p>
+          )}
+        </div>
 
-        <div className="md:col-span-8">
-          <dl className="divide-y divide-ink/25 border-y border-ink/25">
-            <div className="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:gap-6">
-              <dt className="text-xs uppercase tracking-[0.12em] text-muted">
-                {l.labels.neighbourhood}
-              </dt>
-              <dd>
-                {neighbourhood}
-                {business.neighbourhood.status === "unverified" && (
-                  <span className="mt-1 block text-sm text-muted">{l.neighbourhoodNote}</span>
-                )}
-              </dd>
-            </div>
-            <div className="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:gap-6">
-              <dt className="text-xs uppercase tracking-[0.12em] text-muted">{l.labels.address}</dt>
+        <div className="md:col-span-6 md:col-start-7 md:pt-8">
+          <dl className="divide-y divide-action-ink/40 border-y border-action-ink/40">
+            <div className={row}>
+              <dt className={label}>{l.labels.address}</dt>
               <dd>{address ?? pending}</dd>
             </div>
-            <div className="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:gap-6">
-              <dt className="text-xs uppercase tracking-[0.12em] text-muted">{l.labels.hours}</dt>
+            <div className={row}>
+              <dt className={label}>{l.labels.hours}</dt>
               <dd>
                 {hours && hours.length > 0 ? (
                   <ul>
-                    {hours.map((row) => (
-                      <li key={row.days} className="flex justify-between gap-4">
-                        <span>{row.days}</span>
-                        <span>{row.hours}</span>
+                    {hours.map((r) => (
+                      <li key={r.days} className="flex justify-between gap-4">
+                        <span>{r.days}</span>
+                        <span>{r.hours}</span>
                       </li>
                     ))}
                   </ul>
@@ -61,20 +66,18 @@ export function Location() {
                 )}
               </dd>
             </div>
-            <div className="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:gap-6">
-              <dt className="text-xs uppercase tracking-[0.12em] text-muted">{l.labels.phone}</dt>
+            <div className={row}>
+              <dt className={label}>{l.labels.phone}</dt>
               <dd>{phone ?? pending}</dd>
             </div>
-            <div className="grid gap-1 py-4 sm:grid-cols-[9rem_1fr] sm:gap-6">
-              <dt className="text-xs uppercase tracking-[0.12em] text-muted">
-                {l.labels.whatsapp}
-              </dt>
+            <div className={row}>
+              <dt className={label}>{l.labels.whatsapp}</dt>
               <dd>{whatsapp ?? pending}</dd>
             </div>
           </dl>
 
           {(wa || tel || mapsLink) && (
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               {wa && (
                 <a href={wa} target="_blank" rel="noopener noreferrer" className={actionClass}>
                   <MessageCircle aria-hidden="true" size={18} />

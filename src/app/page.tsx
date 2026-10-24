@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
 import { JsonLd } from "@/components/JsonLd";
 import { Location } from "@/components/Location";
+import { MobileContactBar } from "@/components/MobileContactBar";
 import { Reviews } from "@/components/Reviews";
 import { Services } from "@/components/Services";
 import { copy } from "@/data/copy";
@@ -13,7 +14,7 @@ export default function Home() {
     <>
       <a
         href="#contenu"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:bg-ink focus:px-4 focus:py-3 focus:text-paper"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-50 focus:bg-ink focus:px-4 focus:py-3 focus:text-canvas"
       >
         {copy.a11y.skipLink}
       </a>
@@ -26,6 +27,7 @@ export default function Home() {
         <Location />
       </main>
       <Footer />
+      <MobileContactBar />
       <JsonLd />
     </>
   );

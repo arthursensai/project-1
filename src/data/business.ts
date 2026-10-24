@@ -29,6 +29,7 @@ export type GalleryImage = {
   alt: string; // description réelle de la photo
   width: number;
   height: number;
+  caption?: string; // uniquement si l'information est connue
 };
 
 export type SocialLink = { label: string; href: string };
@@ -44,6 +45,8 @@ export type Business = {
   whatsapp: Field<string>; // numéro professionnel confirmé
   openingHours: Field<OpeningHours[]>;
   services: Field<Service[]>;
+  /** Photo principale du hero : image authentique, fournie et autorisée par le salon. */
+  heroImage: Field<GalleryImage>;
   gallery: Field<GalleryImage[]>;
   mapsUrl: Field<string>; // lien vers la fiche Google Maps vérifiée
   reviewsUrl: Field<string>; // lien vers la fiche d'avis Google vérifiée
@@ -58,7 +61,7 @@ export const business: Business = {
   neighbourhood: {
     value: "Hay Riad Ezzaitoune, Aïn Chkef, Fès",
     status: "unverified",
-    note: "Quartier indiqué dans le brief du concept. Aucune source indépendante trouvée.",
+    note: "Quartier indiqué dans le brief. Un annuaire tiers (dudu) liste « coup'ART » à Hay Riad Ezzaitoune, Aïn Chkef, Fès 30050 : concordant, mais source tierce, donc à confirmer par le propriétaire.",
   },
   streetAddress: {
     value: null,
@@ -84,6 +87,11 @@ export const business: Business = {
     value: null,
     status: "unverified",
     note: "Liste des prestations, avec tarifs et durées si le salon souhaite les afficher.",
+  },
+  heroImage: {
+    value: null,
+    status: "unverified",
+    note: "Photo principale (façade, intérieur ou réalisation) avec autorisation écrite.",
   },
   gallery: {
     value: null,

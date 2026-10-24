@@ -6,27 +6,27 @@ import { Wordmark } from "./Wordmark";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-ink/30 bg-paper">
+    <header className="sticky top-0 z-40 border-b border-rule bg-canvas">
       {isPreview && (
-        <p className="bg-ink px-5 py-1 text-center text-[0.7rem] uppercase tracking-[0.14em] text-paper">
+        <p className="bg-ink px-5 py-1.5 text-center text-xs tracking-[0.08em] text-canvas">
           {copy.preview.label}
         </p>
       )}
-      <div className="mx-auto flex max-w-[78rem] flex-wrap items-center justify-between gap-x-4 px-5 md:px-8">
-        <a href="#top" className="flex min-h-11 items-center text-2xl">
+      <div className="wrap flex flex-wrap items-center justify-between gap-x-4">
+        <a href="#top" className="flex min-h-11 items-center text-2xl" aria-label={copy.a11y.home}>
           <Wordmark />
         </a>
 
         <ActionLink
           action={contactAction()}
-          className="order-2 inline-flex min-h-11 items-center bg-ink px-4 text-sm font-medium text-paper hover:bg-accent md:order-3"
+          className="order-2 inline-flex min-h-11 items-center bg-action px-5 text-sm font-medium text-action-ink hover:bg-action-strong md:order-3"
         >
           {copy.header.contactCta}
         </ActionLink>
 
         <nav
           aria-label={copy.a11y.primaryNav}
-          className="order-3 -mx-2 flex w-full justify-between border-t border-ink/15 md:order-2 md:mx-0 md:w-auto md:gap-6 md:border-0"
+          className="order-3 -mx-2 flex w-full justify-between border-t border-rule md:order-2 md:mx-0 md:w-auto md:gap-8 md:border-0"
         >
           {copy.nav.map((item) => (
             <a

@@ -5,20 +5,26 @@ export const copy = {
   locale: "fr_MA",
 
   meta: {
-    title: "coup'ART — Barbier à Fès, Aïn Chkef",
+    // Titre et description honnêtes : le site est un concept indépendant tant que le mode aperçu est actif.
+    previewTitle: "coup'ART — concept de site (non officiel)",
+    previewDescription:
+      "Concept de design indépendant pour coup'ART, salon de coiffure à Aïn Chkef, Fès. Non commandé et non approuvé par le salon.",
+    title: "coup'ART — Salon de coiffure à Aïn Chkef, Fès",
     description:
-      "Aperçu de design pour coup'ART, barbershop à Fès : prestations, horaires et accès sur une page pensée pour le mobile.",
-    ogAlt: "coup'ART — aperçu de design",
+      "coup'ART, salon de coiffure à Aïn Chkef, Fès : prestations, horaires et accès.",
+    ogAlt: "coup'ART — concept de site non officiel",
   },
 
   preview: {
-    label: "Aperçu de design — non officiel",
+    label: "Concept indépendant — non officiel",
   },
 
   a11y: {
     skipLink: "Aller au contenu",
+    home: "coup'ART — haut de page",
     primaryNav: "Navigation principale",
     footerNav: "Navigation du pied de page",
+    heroPlaceholder: "Emplacement réservé à une photographie du salon",
   },
 
   nav: [
@@ -32,19 +38,20 @@ export const copy = {
   },
 
   hero: {
-    headline: "Le barbier d’Aïn Chkef, à Fès.",
-    lead: "Prestations, horaires et accès réunis sur une seule page, pensée d’abord pour le mobile.",
+    kicker: "Salon de coiffure · Aïn Chkef, Fès",
+    headline: "Coiffure à Aïn Chkef, Fès.",
+    lead: "Prestations, horaires et accès réunis sur une page simple, pensée d’abord pour le mobile.",
     primaryCta: "Contacter le salon",
     secondaryCta: "Quartier et accès",
-    placeholderCaption: "Photographie principale du salon à fournir",
+    placeholderLabel: "Photo du salon à venir",
   },
 
   services: {
     eyebrow: "01 — Prestations",
     title: "Prestations et tarifs",
-    emptyTitle: "Bientôt ici",
+    emptyTitle: "La carte des prestations arrivera ici.",
     empty:
-      "La liste des prestations, les tarifs et les durées seront affichés dès qu’ils auront été confirmés par le salon. Rien n’est inventé dans cet aperçu.",
+      "Prestations, tarifs et durées seront publiés après confirmation par le salon.",
     priceLabel: "Tarif",
     durationLabel: "Durée",
   },
@@ -53,8 +60,9 @@ export const copy = {
     eyebrow: "02 — Galerie",
     title: "Le travail du salon",
     empty:
-      "Cet espace accueillera les photographies du salon, publiées avec l’accord de leurs auteurs et des clients concernés.",
+      "Les photographies du salon prendront place ici, avec l’accord de leurs auteurs et des clients concernés.",
     placeholderLabel: "Emplacement photo",
+    showMore: "Voir les autres photos",
   },
 
   reviews: {
@@ -66,10 +74,9 @@ export const copy = {
   location: {
     eyebrow: "03 — Accès",
     title: "Adresse et contact",
-    pending: "À confirmer avec le salon",
-    neighbourhoodNote: "Quartier indiqué pour ce concept — adresse précise non confirmée.",
+    pending: "À confirmer",
+    neighbourhoodNote: "Quartier indiqué pour ce concept, à confirmer par le salon.",
     labels: {
-      neighbourhood: "Quartier",
       address: "Adresse",
       hours: "Horaires",
       phone: "Téléphone",
@@ -80,8 +87,14 @@ export const copy = {
     directionsCta: "Itinéraire",
   },
 
+  contactBar: {
+    call: "Appeler",
+    whatsapp: "WhatsApp",
+    directions: "Itinéraire",
+  },
+
   footer: {
-    note: "Aperçu de design indépendant, non commandé par le salon.",
+    note: "Concept de design indépendant, non commandé ni approuvé par le salon.",
     backToTop: "Retour en haut",
   },
 

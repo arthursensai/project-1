@@ -1,14 +1,21 @@
 @import "tailwindcss";
 
-/* Palette et typographie TEMPORAIRES — à remplacer après examen du logo et des photos réelles. */
+/*
+ * Palette et typographie PROPOSÉES pour le concept — ce ne sont pas les couleurs
+ * officielles du salon. À remplacer si le propriétaire fournit ou approuve une identité.
+ * Les composants n'utilisent que ces rôles sémantiques, jamais de valeurs en dur.
+ */
 @theme {
-  --color-paper: #eeeae2;
-  --color-sand: #e2ddd2;
-  --color-ink: #171613;
-  --color-muted: #5a564e;
-  --color-accent: #9b3a22;
+  --color-canvas: #f1ebdf; /* fond de page */
+  --color-surface: #e4dbc9; /* bandes et aplats secondaires */
+  --color-ink: #1f1a15; /* texte principal */
+  --color-ink-muted: #5c5246; /* texte secondaire */
+  --color-rule: rgb(31 26 21 / 0.28); /* filets */
+  --color-action: #8f3a1e; /* boutons, bande accent, apostrophe */
+  --color-action-strong: #6f2a12; /* survol des actions */
+  --color-action-ink: #f7f2e8; /* texte sur fond action */
 
-  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Noto Serif", "Book Antiqua", Georgia, ui-serif, serif;
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -19,23 +26,48 @@ html {
 }
 
 body {
-  background: var(--color-paper);
+  background: var(--color-canvas);
   color: var(--color-ink);
   font-family: var(--font-sans);
   overflow-wrap: break-word;
   hyphens: auto;
 }
 
-:focus-visible {
-  outline: 3px solid var(--color-accent);
-  outline-offset: 3px;
+/* Grille commune à toutes les sections. */
+.wrap {
+  width: 100%;
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 768px) {
+  .wrap {
+    padding-inline: 2rem;
+  }
 }
 
-.placeholder-frame {
+:focus-visible {
+  outline: 3px solid var(--color-action);
+  outline-offset: 3px;
+}
+.on-action :focus-visible {
+  outline-color: var(--color-action-ink);
+}
+
+/* Emplacement photo : papier hachuré et filet fin, lisible sur la bande secondaire, pas une boîte d'erreur. */
+.slot {
   background:
-    repeating-linear-gradient(135deg, transparent 0 10px, rgb(23 22 19 / 0.07) 10px 11px),
-    var(--color-sand);
-  border: 1px solid rgb(23 22 19 / 0.35);
+    repeating-linear-gradient(135deg, transparent 0 9px, rgb(31 26 21 / 0.07) 9px 10px),
+    var(--color-canvas);
+  border: 1px solid var(--color-rule);
+}
+
+/* Filet pointillé entre une prestation et son tarif. */
+.leader {
+  flex: 1;
+  min-width: 1rem;
+  border-bottom: 1px dotted var(--color-rule);
+  transform: translateY(-0.3em);
 }
 
 @media (prefers-reduced-motion: reduce) {

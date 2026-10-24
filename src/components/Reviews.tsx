@@ -9,15 +9,20 @@ export function Reviews() {
   if (!url) return null;
 
   return (
-    <section id="avis" aria-labelledby="avis-titre" className="border-t border-ink/30">
-      <div className="mx-auto grid max-w-[78rem] gap-8 px-5 py-14 md:grid-cols-12 md:px-8 md:py-20">
-        <SectionHeading id="avis-titre" eyebrow={copy.reviews.eyebrow} title={copy.reviews.title} />
-        <div className="md:col-span-8">
+    <section id="avis" aria-labelledby="avis-titre" className="border-t border-rule">
+      <div className="wrap grid gap-8 py-16 md:grid-cols-12 md:items-end md:gap-10 md:py-20">
+        <SectionHeading
+          id="avis-titre"
+          eyebrow={copy.reviews.eyebrow}
+          title={copy.reviews.title}
+          className="md:col-span-6"
+        />
+        <div className="md:col-span-5 md:col-start-8">
           <a
             href={url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex min-h-12 items-center gap-2 border border-ink px-6 font-medium hover:bg-ink hover:text-paper"
+            className="inline-flex min-h-12 items-center gap-2 border border-ink px-6 font-medium hover:bg-ink hover:text-canvas"
           >
             {copy.reviews.link}
             <ExternalLink aria-hidden="true" size={18} />

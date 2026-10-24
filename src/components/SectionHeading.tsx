@@ -1,10 +1,19 @@
-type Props = { id: string; eyebrow: string; title: string };
+import { cn } from "@/lib/utils";
 
-export function SectionHeading({ id, eyebrow, title }: Props) {
+type Props = { id: string; eyebrow: string; title: string; inverse?: boolean; className?: string };
+
+export function SectionHeading({ id, eyebrow, title, inverse, className }: Props) {
   return (
-    <div className="md:col-span-4">
-      <p className="text-xs uppercase tracking-[0.14em] text-muted">{eyebrow}</p>
-      <h2 id={id} className="mt-3 font-display text-3xl leading-tight md:text-4xl">
+    <div className={className}>
+      <p
+        className={cn(
+          "text-xs font-medium uppercase tracking-[0.16em]",
+          inverse ? "text-action-ink" : "text-ink-muted",
+        )}
+      >
+        {eyebrow}
+      </p>
+      <h2 id={id} className="mt-3 font-display text-3xl leading-[1.1] text-balance md:text-5xl">
         {title}
       </h2>
     </div>

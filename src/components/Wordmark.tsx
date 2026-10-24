@@ -1,12 +1,15 @@
 import { cn } from "@/lib/utils";
 
-/** Wordmark typographique TEMPORAIRE, à remplacer par le logo officiel s'il est fourni. */
+/**
+ * Traitement typographique PROPOSÉ pour le concept (pas un logo officiel) :
+ * « coup » en italique, l'apostrophe en couleur d'action, « ART » en capitales grasses.
+ */
 export function Wordmark({ className }: { className?: string }) {
   return (
     <span className={cn("font-display tracking-tight", className)}>
-      <span>coup</span>
-      <span className="text-accent">&apos;</span>
-      <span className="font-bold">ART</span>
+      <span className="italic">coup</span>
+      <span className="text-action">&apos;</span>
+      <span className="font-bold tracking-normal">ART</span>
     </span>
   );
 }
