@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/* Palette et typographie TEMPORAIRES — à remplacer après examen du logo et des photos réelles. */
+@theme {
+  --color-paper: #eeeae2;
+  --color-sand: #e2ddd2;
+  --color-ink: #171613;
+  --color-muted: #5a564e;
+  --color-accent: #9b3a22;
+
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 7.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.placeholder-frame {
+  background:
+    repeating-linear-gradient(135deg, transparent 0 10px, rgb(23 22 19 / 0.07) 10px 11px),
+    var(--color-sand);
+  border: 1px solid rgb(23 22 19 / 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
